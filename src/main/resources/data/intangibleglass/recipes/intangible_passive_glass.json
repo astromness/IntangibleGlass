@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xpx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:glass"
+    },
+    "p": {
+      "item": "minecraft:wheat"
+    }
+  },
+  "result": {
+    "item": "intangibleglass:intangible_passive_glass",
+    "count": 8
+  }
+}

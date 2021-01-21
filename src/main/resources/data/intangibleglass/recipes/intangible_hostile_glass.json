@@ -1,0 +1,20 @@
+{
+  "type": "minecraft:crafting_shaped",
+  "pattern": [
+    "xxx",
+    "xpx",
+    "xxx"
+  ],
+  "key": {
+    "x": {
+      "item": "minecraft:glass"
+    },
+    "p": {
+      "item": "minecraft:rotten_flesh"
+    }
+  },
+  "result": {
+    "item": "intangibleglass:intangible_hostile_glass",
+    "count": 8
+  }
+}

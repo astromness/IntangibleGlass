@@ -1,0 +1,14 @@
+{
+  "item.intangibleglass.intangible_glass": "Intangible Glass",
+  "block.intangibleglass.intangible_glass": "Intangible Glass",
+  "item.intangibleglass.intangible_passive_glass": "Intangible Passive Glass",
+  "block.intangibleglass.intangible_passive_glass": "Intangible Passive Glass",
+  "item.intangibleglass.intangible_hostile_glass": "Intangible Hostile Glass",
+  "block.intangibleglass.intangible_hostile_glass": "Intangible Hostile Glass",
+  "item.intangibleglass.intangible_villager_glass": "Intangible Villager Glass",
+  "block.intangibleglass.intangible_villager_glass": "Intangible Villager Glass",
+  "item.intangibleglass.intangible_item_glass": "Intangible Item Glass",
+  "block.intangibleglass.intangible_item_glass": "Intangible Item Glass",
+  "block.intangibleglass.intangible_item_damage_glass": "Intangible Damaging Item Glass",
+  "itemGroup.intangibleglass": "Intangible Glass"
+}

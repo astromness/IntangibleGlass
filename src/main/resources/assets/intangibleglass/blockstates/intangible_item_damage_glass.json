@@ -1,0 +1,5 @@
+{
+  "variants": {
+    "": { "model": "intangibleglass:block/intangible_item_damage_glass" }
+  }
+}

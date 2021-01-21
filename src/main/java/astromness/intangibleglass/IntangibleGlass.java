@@ -1,9 +1,12 @@
 package astromness.intangibleglass;
 
-import net.minecraft.block.Block;
+import astromness.intangibleglass.intangiglass.IntangibleModule;
+import astromness.intangibleglass.setup.ModSetup;
+import astromness.intangibleglass.setup.Registration;
 import net.minecraft.block.Blocks;
+import net.minecraft.client.renderer.RenderType;
+import net.minecraft.client.renderer.RenderTypeLookup;
 import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.event.RegistryEvent;
 import net.minecraftforge.eventbus.api.SubscribeEvent;
 import net.minecraftforge.fml.InterModComms;
 import net.minecraftforge.fml.common.Mod;
@@ -19,14 +22,18 @@ import org.apache.logging.log4j.Logger;
 import java.util.stream.Collectors;
 
 // The value here should match an entry in the META-INF/mods.toml file
-@Mod(Intangibleglass.MODID)
-public class Intangibleglass {
+@Mod(IntangibleGlass.MODID)
+public class IntangibleGlass {
     public static final String MODID = "intangibleglass";
 
     // Directly reference a log4j logger.
     private static final Logger LOGGER = LogManager.getLogger();
+    public static final ModSetup setup = new ModSetup();
 
-    public Intangibleglass() {
+    public IntangibleGlass() {
+        setupModules();
+        Registration.register();
+
         // Register the setup method for modloading
         FMLJavaModLoadingContext.get().getModEventBus().addListener(this::setup);
         // Register the enqueueIMC method for modloading
@@ -49,6 +56,13 @@ public class Intangibleglass {
     private void doClientStuff(final FMLClientSetupEvent event) {
         // do something that can only be done on the client
         LOGGER.info("Got game settings {}", event.getMinecraftSupplier().get().gameSettings);
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_BLOCK.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_HOSTILE_BLOCK.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_PASSIVE_BLOCK.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_VILLAGER_BLOCK.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_ITEM_BLOCK.get(), RenderType.getTranslucent());
+        RenderTypeLookup.setRenderLayer(IntangibleModule.INTANGIBLE_GLASS_ITEM_DAMAGE_BLOCK.get(), RenderType.getTranslucent());
+
     }
 
     private void enqueueIMC(final InterModEnqueueEvent event) {
@@ -73,14 +87,9 @@ public class Intangibleglass {
         LOGGER.info("HELLO from server starting");
     }
 
-    // You can use EventBusSubscriber to automatically subscribe events on the contained class (this is subscribing to the MOD
-    // Event bus for receiving Registry Events)
-    @Mod.EventBusSubscriber(bus = Mod.EventBusSubscriber.Bus.MOD)
-    public static class RegistryEvents {
-        @SubscribeEvent
-        public static void onBlocksRegistry(final RegistryEvent.Register<Block> blockRegistryEvent) {
-            // register a new block here
-            LOGGER.info("HELLO from Register Block");
-        }
+    private void setupModules() {
+        IntangibleModule intangible= new IntangibleModule();
+
+
     }
 }
